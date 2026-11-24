@@ -1,0 +1,31 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="J.A.R.V.I.S.  ·  Codex" Background="#040A0F" Foreground="#E1F3F5" FontFamily="Segoe UI, Microsoft YaHei UI" Width="1100" Height="750" MinWidth="800" MinHeight="580" WindowStartupLocation="CenterScreen">
+  <Window.Resources>
+    <Style TargetType="Button">
+      <Setter Property="Foreground" Value="#ADE7ED"/><Setter Property="Background" Value="#112830"/><Setter Property="BorderBrush" Value="#345660"/>
+      <Setter Property="Margin" Value="0,0,8,0"/><Setter Property="Padding" Value="15,8"/><Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+        <Border x:Name="edge" CornerRadius="3" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border>
+        <ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="edge" Property="BorderBrush" Value="#93EAFA"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="edge" Property="BorderBrush" Value="White"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="edge" Property="Opacity" Value=".55"/></Trigger></ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+  </Window.Resources>
+  <Grid><Grid.RowDefinitions><RowDefinition Height="54"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+    <DockPanel Margin="24,0"><TextBlock VerticalAlignment="Center" Foreground="#8BD4DD" FontFamily="Consolas" FontSize="15" Text="J.A.R.V.I.S.   /   PERSONAL CONSOLE"/>
+      <TextBlock x:Name="phase" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#E9A664" FontFamily="Consolas" Text="STANDBY"/></DockPanel>
+    <Grid Grid.Row="1" Background="Black" ClipToBounds="True">
+      <Image x:Name="poster" Stretch="Uniform"/>
+      <MediaElement x:Name="film" LoadedBehavior="Manual" UnloadedBehavior="Close" Stretch="Uniform" Visibility="Hidden"/>
+      <Border HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#DA061118" Padding="20,8" Margin="12"><TextBlock x:Name="caption" Foreground="#E9FAFB" FontSize="17" Text="等待唤醒"/></Border>
+    </Grid>
+    <StackPanel Grid.Row="2" Margin="24,14,24,18">
+      <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+        <TextBox x:Name="entry" FontSize="16" Background="#081820" BorderBrush="#345660" Foreground="#D6F2F3" CaretBrush="White" Padding="10,6" VerticalContentAlignment="Center" AutomationProperties.Name="输入给贾维斯的指令"/>
+        <Button Grid.Column="1" x:Name="send" Content="发送" Margin="8,0"/><Button Grid.Column="2" x:Name="mic" Content="🎙  说话" Margin="0"/>
+      </Grid>
+      <DockPanel Margin="0,10,0,0">
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal"><Button x:Name="mute" Content="静音"/><Button x:Name="export" Content="导出素材" Margin="0"/></StackPanel>
+        <StackPanel Orientation="Horizontal"><Button x:Name="action" Content="你好，贾维斯" Background="#16454E"/><Button x:Name="workspace" Content="进入工作台  ↗"/></StackPanel>
+      </DockPanel>
+    </StackPanel>
+  </Grid>
+</Window>

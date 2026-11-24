@@ -1,0 +1,12 @@
+{
+  "name": "jarvis-launcher",
+  "interface": { "displayName": "Jarvis Launcher" },
+  "plugins": [
+    {
+      "name": "jarvis-console",
+      "source": { "source": "local", "path": "./plugins/jarvis-console" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

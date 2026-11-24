@@ -1,0 +1,11 @@
+{
+  "name": "jarvis-console",
+  "version": "1.5.0",
+  "description": "Windows 贾维斯互动启动器和剪辑素材。",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Jarvis Launcher",
+    "shortDescription": "开机动画、语音互动和分轨导出",
+    "category": "Productivity"
+  }
+}
