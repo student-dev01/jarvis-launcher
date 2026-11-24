@@ -16,7 +16,7 @@ server = FastMCP("Jarvis Launcher")
 
 
 @server.tool(annotations=ToolAnnotations(readOnlyHint=True, openWorldHint=False))
-def jarvis_status() -> dict:
+def jarvis_status() -> dict[str, bool | str]:
     """Report which local Jarvis features are available. Does not open a window."""
     return {
         "interactive_windows_launcher": sys.platform == "win32" and (LAUNCHER / "Jarvis.exe").is_file(),
@@ -27,7 +27,7 @@ def jarvis_status() -> dict:
 
 
 @server.tool(annotations=ToolAnnotations(destructiveHint=False, openWorldHint=False))
-def jarvis_launch(mode: Literal["boot", "console", "awake"] = "boot") -> dict:
+def jarvis_launch(mode: Literal["boot", "console", "awake"] = "boot") -> dict[str, bool | str | int]:
     """Open Jarvis on the user's own desktop when explicitly requested. On macOS and Linux, open the animation only."""
     movie = ASSETS / "boot.mp4"
     if not movie.is_file():
@@ -55,7 +55,7 @@ def jarvis_launch(mode: Literal["boot", "console", "awake"] = "boot") -> dict:
 
 
 @server.tool(annotations=ToolAnnotations(readOnlyHint=True, openWorldHint=False))
-def jarvis_editing_assets() -> dict:
+def jarvis_editing_assets() -> dict[str, str | int]:
     """Return the location of the bundled timeline, audio tracks, subtitles and source assets."""
     archive = ASSETS / "edit-kit.zip"
     if not archive.is_file():
